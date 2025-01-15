@@ -3,13 +3,24 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 
-// Generate dummy data
-const orders = Array.from({ length: 10 }, (_, i) => ({
-  orderId: i + 1,
-  customerName: `Customer ${i + 1}`,
-  orderStatus: ['Pending', 'Shipped', 'Delivered'][Math.floor(Math.random() * 3)],
-  orderTotal: (Math.random() * 500).toFixed(2),
-}));
+// Static dummy data
+const orders = [
+  { orderId: 1, customerName: 'John Doe', orderStatus: 'Pending', orderTotal: 250.75 },
+  { orderId: 2, customerName: 'Jane Smith', orderStatus: 'Shipped', orderTotal: 150.50 },
+  { orderId: 3, customerName: 'Alice Johnson', orderStatus: 'Delivered', orderTotal: 300.40 },
+  { orderId: 4, customerName: 'Bob Brown', orderStatus: 'Pending', orderTotal: 425.30 },
+  { orderId: 5, customerName: 'Charlie Davis', orderStatus: 'Shipped', orderTotal: 120.00 },
+  { orderId: 6, customerName: 'Diana Evans', orderStatus: 'Delivered', orderTotal: 315.60 },
+  { orderId: 7, customerName: 'Ethan Wright', orderStatus: 'Pending', orderTotal: 180.25 },
+  { orderId: 8, customerName: 'Fiona Adams', orderStatus: 'Shipped', orderTotal: 230.10 },
+  { orderId: 9, customerName: 'George Clark', orderStatus: 'Delivered', orderTotal: 310.80 },
+  { orderId: 10, customerName: 'Hannah Martin', orderStatus: 'Pending', orderTotal: 195.40 },
+  { orderId: 11, customerName: 'Isaac Thomas', orderStatus: 'Shipped', orderTotal: 250.00 },
+  { orderId: 12, customerName: 'Jack Wilson', orderStatus: 'Delivered', orderTotal: 220.80 },
+  { orderId: 13, customerName: 'Karen Lewis', orderStatus: 'Pending', orderTotal: 175.90 },
+  { orderId: 14, customerName: 'Liam Hall', orderStatus: 'Shipped', orderTotal: 290.70 },
+  { orderId: 15, customerName: 'Mia Scott', orderStatus: 'Delivered', orderTotal: 200.30 },
+];
 
 // Endpoint to get all orders
 app.get('/orders', (req, res) => {
